@@ -35,12 +35,10 @@ async function registerUser(req, res) {
     },
     process.env.JWT_SECRET,
   );
-res.cookie("token", token, {
+ res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-   
-     sameSite: "lax" 
-    //  sameSite: "lax" // production me true
+    secure: true,      // 🔥 production ke liye
+    sameSite: "None"   // 🔥 cross-site cookies ke liye
   });
   // res.cookie("token", token);
   res.status(201).json({
@@ -80,10 +78,10 @@ async function loginUser(req, res) {
     id:user._id,
     role:user.role
    },process.env.JWT_SECRET)
-   res.cookie("token", token, {
+ res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-     sameSite: "lax" 
+    secure: true,      // 🔥 production ke liye
+    sameSite: "None"   // 🔥 cross-site cookies ke liye
   });
   //  console.log("cookies",req.cookies)
 

@@ -10,9 +10,9 @@ connectDB();
 const app = express();
 const cors=require('cors')
 app.use(cors({
-  origin: "http://localhost:5173", // frontend URL
+  origin: "https://simple-spot-frontend-spotify-indol.vercel.app",
   credentials: true
-}))
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.json());
